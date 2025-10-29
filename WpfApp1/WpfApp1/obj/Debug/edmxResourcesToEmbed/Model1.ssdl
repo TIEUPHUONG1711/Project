@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Database1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="SACH">
+    <Key>
+      <PropertyRef Name="MaSach" />
+    </Key>
+    <Property Name="MaSach" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TuaSach" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TacGia" Type="nvarchar" MaxLength="50" />
+    <Property Name="NamXB" Type="int" />
+    <Property Name="MaTL" Type="int" />
+  </EntityType>
+  <EntityType Name="THELOAI">
+    <Key>
+      <PropertyRef Name="MaTL" />
+    </Key>
+    <Property Name="MaTL" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenTL" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_SACH_ToTable">
+    <End Role="THELOAI" Type="Self.THELOAI" Multiplicity="0..1" />
+    <End Role="SACH" Type="Self.SACH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="THELOAI">
+        <PropertyRef Name="MaTL" />
+      </Principal>
+      <Dependent Role="SACH">
+        <PropertyRef Name="MaTL" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Database1ModelStoreContainer">
+    <EntitySet Name="SACH" EntityType="Self.SACH" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="THELOAI" EntityType="Self.THELOAI" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_SACH_ToTable" Association="Self.FK_SACH_ToTable">
+      <End Role="THELOAI" EntitySet="THELOAI" />
+      <End Role="SACH" EntitySet="SACH" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Database1ModelStoreContainer" CdmEntityContainer="Database1Entities">
+    <EntitySetMapping Name="SACHes">
+      <EntityTypeMapping TypeName="Database1Model.SACH">
+        <MappingFragment StoreEntitySet="SACH">
+          <ScalarProperty Name="MaSach" ColumnName="MaSach" />
+          <ScalarProperty Name="TuaSach" ColumnName="TuaSach" />
+          <ScalarProperty Name="TacGia" ColumnName="TacGia" />
+          <ScalarProperty Name="NamXB" ColumnName="NamXB" />
+          <ScalarProperty Name="MaTL" ColumnName="MaTL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="THELOAIs">
+      <EntityTypeMapping TypeName="Database1Model.THELOAI">
+        <MappingFragment StoreEntitySet="THELOAI">
+          <ScalarProperty Name="MaTL" ColumnName="MaTL" />
+          <ScalarProperty Name="TenTL" ColumnName="TenTL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
